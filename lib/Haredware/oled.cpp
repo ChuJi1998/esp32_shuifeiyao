@@ -41,3 +41,24 @@ void oled_showText(const char *text)
   display.println(text);                  // 将文本写入显示缓冲区
   display.display();                      // 将缓冲区内容显示到屏幕上
 }
+
+/**
+ * @brief OLED显示多行文本（1倍字体, 每行 21 字符, 最多 8 行）
+ * @param lines 行文本数组
+ * @param count 行数
+ */
+void oled_showLines(const char *const *lines, uint8_t count)
+{
+  if (!lines || count == 0) return;
+  if (count > 8) count = 8;
+
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+
+  for (uint8_t i = 0; i < count; i++) {
+    display.println(lines[i] ? lines[i] : "");
+  }
+  display.display();
+}

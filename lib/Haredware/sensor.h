@@ -68,6 +68,9 @@ struct SoilData {
 /* ── 外部全局传感器RS485串口对象 ── */
 extern HardwareSerial SENSOR_SER;
 
+/* 风向 16 方位名称, idx 越界返回 "???" */
+const char *windDirName(int idx);
+
 /* ════════════════════════════════════════════
    初始化 & 扫描
    ════════════════════════════════════════════ */

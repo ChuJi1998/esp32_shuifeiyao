@@ -173,6 +173,12 @@ static const char *compassNames[16] = {
   "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"
 };
 
+const char *windDirName(int idx)
+{
+  if (idx >= 0 && idx < 16) return compassNames[idx];
+  return "???";
+}
+
 /* ════════════════════════════════════════════
    2# 风向传感器 (地址0x02, 9600bps)
    寄存器0x0000: 360°角度 (÷10), 0x0001: 16方位 0-15
@@ -192,10 +198,7 @@ bool readWindDirData(WindDirData *wd)
 
   wd->angle   = (float)angleRaw / 10.0f;        /* 0x0BEF=3055 → 305.5° */
   wd->compass = compassRaw;                      /* 0-15 */
-  if (wd->compass >= 0 && wd->compass < 16)
-    wd->name = compassNames[wd->compass];
-  else
-    wd->name = "???";
+  wd->name    = windDirName(wd->compass);
 
   return true;
 }

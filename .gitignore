@@ -3,3 +3,9 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
+
+# PC 侧服务
+server/data/
+server/static/vendor/
+__pycache__/
+*.pyc

@@ -1,0 +1,232 @@
+/*
+ * style.css — 环境监测控制系统 样式表
+ * 企业级前后端分离架构
+ */
+
+/* ═══ 状态徽章 ═══ */
+.badge-ok {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+  border-radius: 9999px;
+}
+
+.badge-warn {
+  background: #fef9c3;
+  color: #a16207;
+  border: 1px solid #fef08a;
+  border-radius: 9999px;
+}
+
+.badge-err {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 9999px;
+}
+
+.badge-off {
+  background: #f3f4f6;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+}
+
+/* ═══ LED 指示灯动画 ═══ */
+.led-on {
+  box-shadow: 0 0 10px currentColor;
+  animation: ledBlink 1.6s ease-in-out infinite alternate;
+}
+
+@keyframes ledBlink {
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
+}
+
+/* ═══ 侧边栏导航项 ═══ */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: none;
+  border-radius: 0.75rem;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #d1fae5;
+  text-align: left;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.nav-active {
+  background: #10b981;
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);
+}
+
+/* ═══ 工具栏按钮 ═══ */
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #4b5563;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.tool-btn:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  color: #111827;
+}
+
+.tool-btn.active {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.tool-btn-danger:hover {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+/* ═══ 分段选择器 ═══ */
+.seg-btn {
+  padding: 0.3rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #4b5563;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.seg-btn:hover { color: #111827; }
+
+.seg-btn.active {
+  background: #ffffff;
+  color: #059669;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* ═══ 通道标签 ═══ */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f3f4f6;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.chip:hover { background: #e5e7eb; }
+
+.chip.active {
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.25);
+}
+
+.chip .dot,
+.cdot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  margin-right: 0.25rem;
+}
+
+/* ═══ 数据表格 ═══ */
+.stat-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.75rem;
+}
+
+.stat-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0.45rem 0.6rem;
+  font-weight: 600;
+  color: #6b7280;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.stat-table td {
+  padding: 0.4rem 0.6rem;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.stat-table th:first-child,
+.stat-table td:first-child {
+  text-align: left;
+}
+
+.stat-table tbody tr:hover { background: #f0fdf4; }
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ═══ 细滚动条 ═══ */
+.hscroll {
+  scrollbar-width: thin;
+}
+
+.hscroll::-webkit-scrollbar { height: 6px; width: 6px; }
+.hscroll::-webkit-scrollbar-track { background: transparent; }
+.hscroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+/* 小屏：侧边栏收窄为图标栏 */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 4.5rem;
+  }
+  .sidebar .brand-text,
+  .sidebar .nav-item span,
+  .sidebar .sidebar-footer {
+    display: none;
+  }
+  .nav-item {
+    justify-content: center;
+    gap: 0;
+  }
+  .main-area {
+    margin-left: 4.5rem;
+  }
+}
